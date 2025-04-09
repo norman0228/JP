@@ -1,33 +1,48 @@
 <!DOCTYPE html>
-<html>
+<html lang="zh-TW">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>日本商品利潤計算機</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <div class="container">
-        <h2>日本商品利潤計算機</h2>
+        <h2>🇯🇵 日本商品利潤計算機</h2>
+        <!-- 商品售價 -->
         <div class="input-group">
-            <label>商品售價 (台幣)</label>
+            <label for="price">商品售價 (台幣)</label>
             <input type="number" id="price" placeholder="輸入金額">
         </div>
-        <div class="input-group">
-            <label>商品成本 (日圓)</label>
-            <input type="number" id="cost" placeholder="輸入金額">
+
+        <!-- 商品成本與匯率 -->
+        <div class="input-row">
+            <div class="input-group">
+                <label for="cost">商品成本 (日圓)</label>
+                <input type="number" id="cost" placeholder="輸入金額">
+            </div>
+            <div class="input-group">
+                <label for="rate">匯率 (1日圓=台幣)</label>
+                <input type="number" step="0.0001" id="rate" value="0.24">
+            </div>
         </div>
-        <div class="input-group">
-            <label>匯率 (1日圓=台幣)</label>
-            <input type="number" step="0.0001" id="rate" value="0.24">
+
+        <!-- 重量與運費 -->
+        <div class="input-row">
+            <div class="input-group">
+                <label for="weight">重量 (克)</label>
+                <input type="number" id="weight" placeholder="輸入重量">
+            </div>
+            <div class="input-group">
+                <label for="shipping">運費/公斤 (台幣)</label>
+                <input type="number" id="shipping" value="220">
+            </div>
         </div>
-        <div class="input-group">
-            <label>商品重量 (克)</label>
-            <input type="number" id="weight" placeholder="輸入重量">
-        </div>
-        <div class="input-group">
-            <label>海外運費 (每公斤台幣)</label>
-            <input type="number" id="shipping" value="220">
-        </div>
-        <button onclick="calculate()">計算</button>
+
+        <!-- 計算按鈕 -->
+        <button onclick="calculate()">立即計算</button>
+
+        <!-- 結果顯示 -->
         <div id="results"></div>
     </div>
 
